@@ -1,16 +1,25 @@
 package chess.Repository;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.*;
 
-import chess.Location;
+
+import java.util.*;
+
+import chess.Entities.Location;
+import chess.Entities.PieceColour;
+import chess.Entities.Position;
+import chess.Entities.Square;
 public class BoardRepository implements IBoardRepository {
 
     private final String message = "Board is set";
+    private final String successful = "Successful";
     private final List<Square> chessboard;
     
 
     public BoardRepository(){
-        chessboard = new ArrayList<Square>();
+        chessboard = Stream.generate(() -> new Square(null,null)).limit(10).collect(Collectors.toList());
+;
     }
 
     public BoardRepository(List<Square> chessboard){
@@ -23,6 +32,11 @@ public class BoardRepository implements IBoardRepository {
         for(int start = 8; start < 16; start++){
             chessboard.set(start, pawn);
         }
+
+    }
+
+    public Integer convertPositionToIndex(Location position1){
+        return position1.getLocation2() == 0 ? position1.getLocation1():(position1.getLocation2()-1) * 10 + position1.getLocation1();
 
     }
 
@@ -45,6 +59,21 @@ public class BoardRepository implements IBoardRepository {
         return message;
 
     }
+
+    @Override 
+    public String movePiece(String piecename, Location position1, Location position2){
+        
+        Square square1 = chessboard.get(convertPositionToIndex(position1));
+        
+        Square square2 = chessboard.get(convertPositionToIndex(position2));
+
+        
+        
+        
+        return successful;
+        
+    }
+
 
 
 

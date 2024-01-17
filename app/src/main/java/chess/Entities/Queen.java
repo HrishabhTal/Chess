@@ -1,4 +1,4 @@
-package chess;
+package chess.Entities;
 
 public class Queen {
     

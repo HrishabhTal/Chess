@@ -1,4 +1,4 @@
-package chess.Repository;
+package chess.Entities;
 
 public class Square {
 
