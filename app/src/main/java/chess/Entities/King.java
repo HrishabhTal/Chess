@@ -3,42 +3,34 @@ package chess.Entities;
 import java.util.ArrayList;
 import java.util.List;
 
-public class King extends Position {
+public class King extends Piece {
 
+   private final int MIN_POSITION = 1;
+   private final int MAX_POSITION = 8;
+   private List<Location> possibleLocations = new ArrayList<>();
 
-    private List<Location> allpossibles = new ArrayList<Location>();
-    
-    public King(Location position){
-        this.position = position;
+   public King(Location initialPosition){
+      this.position = initialPosition;
     }
 
-    public void check(int pos1, int pos2, List<Location> allpossibles){
+    private void validateAndAddPosition(int x, int y){
+      if(x > MIN_POSITION && x < MAX_POSITION && y > MIN_POSITION && y < MAX_POSITION){
+      possibleLocations.add(new Location(x, y));
+    }
+   }
 
-        if(pos1>0 && pos1<8 && pos2>0 && pos2<8){
-            
-            Location position = new Location(pos1, pos2);
-            allpossibles.add(position);
-        }
+   public List<Location> getPossibleMoves(){
+     int currentX = position.getLocation1();
+     int currentY = position.getLocation2();
 
+     int[] directionX = {-1, 0, 1, -1, 1, -1, 0, 1};
+     int[] directionY = {-1, -1, -1, 0, 0, 1, 1, 1};
 
+     for (int directionIndex = 0; directionIndex < 8; directionIndex++) {
+       validateAndAddPosition(currentX + directionX[directionIndex], currentY + directionY[directionIndex]);
+     }
+
+     return possibleLocations;
     }
 
-    public List<Location> getAllpossibleSqaures(){
-
-
-        Integer pos1 = position.getLocation1();
-
-        Integer pos2 = position.getLocation2();
-
-        check(pos1+1, pos2, allpossibles);
-        check(pos1, pos2+1, allpossibles);
-        check(pos1+1, pos2+1, allpossibles);
-        check(pos1-1, pos2, allpossibles);
-        check(pos1, pos2-1, allpossibles);
-        check(pos1-1, pos2-1, allpossibles);
-        check(pos1+1, pos2-1, allpossibles);
-        check(pos1-1, pos2+1, allpossibles);
-
-        return allpossibles;
-    }
 }
