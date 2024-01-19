@@ -15,18 +15,18 @@ public class Pawn extends Piece {
     }
 
     public List<Location> getPossibleMoves(){
-      if(position.getLocation2() == INITIAL_LOCATION){
+      if(position.getYcoordinate() == INITIAL_LOCATION){
          possibleLocations.add(new Location(0,0));
          return possibleLocations; 
        }
        
-      Integer currentLocation2 = position.getLocation2();
+      Integer currentLocation2 = position.getYcoordinate();
        
       if(currentLocation2 == ADDITIONAL_MOVE){
-         possibleLocations.add(new Location(position.getLocation1(), position.getLocation2() + ADDITIONAL_MOVE));
+         possibleLocations.add(new Location(position.getXcoordinate(), position.getYcoordinate() + ADDITIONAL_MOVE));
        }
        
-      possibleLocations.add(new Location(position.getLocation1(), position.getLocation2() + 1));
+      possibleLocations.add(new Location(position.getXcoordinate(), position.getYcoordinate() + 1));
        
       return possibleLocations;
     

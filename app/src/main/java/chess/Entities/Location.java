@@ -3,35 +3,35 @@ import java.util.ArrayList;
 import java.util.List;
 public class Location {
 
-    private Integer location1;
-    private Integer location2;
+    private Integer xcoordinate;
+    private Integer ycoordinate;
 
     public Location(Integer location1, Integer location2){
-        this.location1 = location1;
-        this.location2 = location2;
+        this.xcoordinate = location1;
+        this.ycoordinate = location2;
 
     }
 
-    public void setLocation1(Integer location){
+    public void setXcoordinate(Integer location){
         
-        location1 = location;
+        xcoordinate = location;
     
     }
 
-    public void setLocation2(Integer location){
+    public void setYcoordinate(Integer location){
 
-        location2 = location;
+        ycoordinate = location;
 
     }
-    public Integer getLocation1(){
+    public Integer getXcoordinate(){
 
-        return location1;
+        return xcoordinate;
 
     }
     
-    public Integer getLocation2(){
+    public Integer getYcoordinate(){
 
-        return location2;
+        return ycoordinate;
 
     }
 

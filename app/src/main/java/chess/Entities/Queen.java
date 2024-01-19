@@ -22,8 +22,8 @@ public class Queen extends Piece{
 
      public List<Location> getPossibleMoves(){
 
-        int currentX = position.getLocation1();
-        int currentY = position.getLocation2();
+        int currentX = position.getXcoordinate();
+        int currentY = position.getYcoordinate();
    
         int[] directionX = {-1, 0, 1, -1, 1, -1, 0, 1};
         int[] directionY = {-1, -1, -1, 0, 0, 1, 1, 1};

@@ -36,7 +36,7 @@ public class ChessBoardRepository{
     }
 
     public Integer convertPositionToIndex(Location position1){
-        return position1.getLocation2() == 0 ? position1.getLocation1():(position1.getLocation2()-1) * 10 + position1.getLocation1();
+        return position1.getYcoordinate() == 0 ? position1.getXcoordinate():(position1.getYcoordinate()-1) * 10 + position1.getXcoordinate();
 
     }
 
