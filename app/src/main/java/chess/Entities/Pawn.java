@@ -5,8 +5,8 @@ import java.util.List;
 
 public class Pawn extends Piece {
     
-    private static final int INITIAL_LOCATION = 8;
-    private static final int ADDITIONAL_MOVE = 2;
+    private final int INITIAL_LOCATION = 8;
+    private final int ADDITIONAL_MOVE = 2;
 
     private List<Location> possibleLocations = new ArrayList<>();
 
